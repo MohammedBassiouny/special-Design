@@ -1,0 +1,141 @@
+@use "../helpers/index" as*;
+@use "../components/components" as*;
+
+.timeline {
+  background-color: #eee;
+  .timeline-content {
+    position: relative;
+    &::before{
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: calc(100% + 50px);
+      background-color: var(--main-color);
+      top: -20px;
+      left: 50%;
+      margin-left: -1px;
+    }
+    .year {
+      background-color: var(--main-color);
+      width: 60px;
+      text-align: center;
+      padding:calc( var(--p1) - 6px);
+      color: #fff;
+      border-radius: 6px;
+      margin: 20px auto;
+      position: relative;
+      font-weight: var(--font-bold);
+    }
+    .left-box,
+    .right-box {
+      width: calc(50% - 25px);
+      position: relative;
+      margin-bottom: var(--mb-32);
+    }
+    .right-box {
+      margin-left: calc(50% + 27px);
+    }
+
+    .left-box::before,
+    .right-box::before {
+      content: "";
+      position: absolute;
+      border-width: 12px;
+      border-style: solid;
+      top: 20px;
+    }
+    .left-box::before {
+      border-color: transparent transparent transparent #fff;
+      right: -24px;
+    }
+    .right-box::before {
+      border-color: transparent #fff transparent transparent;
+      left: -24px;
+    }
+    .left-box::after,
+    .right-box::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      top: 23px;
+      border: 2px solid var(--main-color);
+      border-radius: 50%;
+      background: #fff;
+    }
+    .left-box::after {
+      right: -34px;
+    }
+    .right-box::after {
+      left: -36px;
+    }
+    .content {
+      background-color: #FFF;
+      padding: var(--p1-5);
+      border-radius: 6px;
+      box-shadow: 1px 2px 11px #d9d9d9;
+      h3 {
+        margin-bottom: var(--mb-8);
+        color: var(--main-color);
+      }
+      p {
+        line-height: 1.6;
+        color: var(--secondary-color);
+        font-size: var(--small-font-size);
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 576px) {
+  .timeline {
+    .timeline-content {
+      position: relative;
+      &::before{
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: calc(100% + 50px);
+        background-color: var(--main-color);
+        top: -20px;
+        left: 50%;
+        margin-left: -1px;
+      }
+      .year {
+        background-color: var(--main-color);
+        width: 60px;
+        text-align: center;
+        padding:calc( var(--p1) - 6px);
+        color: #fff;
+        border-radius: 6px;
+        margin: 20px auto;
+        position: relative;
+      }
+      .left-box,
+      .right-box {
+        width: 100%;
+        margin: 0 auto 30px;
+      }
+      .left-box::before,
+      .right-box::before {
+        display: none;
+      }
+      .left-box::after,
+      .right-box::after {
+        display: none;
+      }
+      .content {
+        h3 {
+          margin-bottom: var(--mb-8);
+          color: var(--main-color);
+        }
+        p {
+          line-height: 1.6;
+          color: var(--secondary-color);
+          font-size: var(--small-font-size);
+        }
+      }
+    }
+  }
+}

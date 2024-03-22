@@ -1,0 +1,49 @@
+@use "../helpers/index" as*;
+@use "../components/components" as*;
+
+.nav-bullets {
+  position: fixed;
+  z-index: 100;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  ul {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    .bullet {
+      width: 20px;
+      height: 20px;
+      border: 3px solid var(--main-color);
+      border-radius: 50%;
+      position: relative;
+      cursor: pointer;
+      .tooltip {
+        background-color: var(--main-color);
+        padding: 6px 8px;
+        color: #fff;
+        position: absolute;
+        right: 30px;
+        top: -6px;
+        width: 100px;
+        font-size: var(--small-font-size);
+        cursor: default;
+        pointer-events: none;
+        display: none;
+        &::before {
+          content: "";
+          position: absolute;
+          border-width: 10px;
+          border-style: solid;
+          top: 50%;
+          border-color: transparent transparent transparent var(--main-color);
+          right: -20px;
+          transform: translateY(-50%);
+        }
+      }
+      &:hover .tooltip {
+        display: block;
+      }
+    }
+  }
+}

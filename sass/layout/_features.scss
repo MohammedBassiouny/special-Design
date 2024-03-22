@@ -1,0 +1,58 @@
+@use "../helpers/index" as*;
+@use "../components/components" as*;
+
+.features {
+  .feat-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    .box {
+      figure {
+        text-align: center;
+        .feat-img {
+          width: 100px;
+          margin-bottom: var(--mb-16);
+        }
+      }
+      .feat-text {
+        text-align: center;
+        h2 {
+          position: relative;
+          width: 200px;
+          margin:  {
+            bottom: var(--mb-32);
+            left: auto;
+            right: auto;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background-color: var(--main-color);
+            left: 50%;
+            top: 35px;
+            margin-left: -25px;
+          }
+        }
+        p {
+          line-height: 1.6;
+          font-size: var(--normal-font-size);
+          color: var(--secondary-color);
+          font-weight: var(--font-semi-bold);
+        }
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 350px) {
+  .features {
+    .feat-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 10px;
+    }
+  }
+}

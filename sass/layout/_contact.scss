@@ -1,0 +1,111 @@
+@use "../helpers/index" as*;
+@use "../components/components" as*;
+
+
+.contact {
+  background-image: url(/imgs/contact.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 600px;
+  position: relative;
+  z-index: 22;
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .6);
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .contact-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+    margin: 0 auto;
+    z-index: 22;
+    position: relative;
+    .left-section {
+      width: 49%;
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        input {
+          width: 100%;
+          border: 1px solid #CCC;
+          padding: var(--p1) var(--p1-5);
+          outline: none;
+          background-color: rgba(218, 218, 218, 0.19);
+          // transition: 0.4s;
+          &:focus {
+            border-bottom: 1px solid var(--main-color);
+          }
+          &:focus::-webkit-input-placeholder {
+            opacity: 0;
+            transition: var(--transition);
+          }
+        }
+      }
+    }
+    .right-section {
+      width: 49%;
+      align-self: flex-start;
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        textarea {
+          height: 161px;
+          padding: var(--p1) var(--p1-5);
+          outline: none;
+          border: 1px solid #CCC;
+          background-color: rgba(218, 218, 218, 0.19);
+          &:focus {
+            outline: 1px solid var(--main-color);
+          }
+          &:focus::-webkit-input-placeholder {
+            opacity: 0;
+            transition: var(--transition);
+          }
+        }
+        input {
+          padding: var(--p1) var(--p1-5);
+          outline: none;
+          border: 1px solid var(--main-color);
+          background-color: var(--main-color);
+          color: var(--main-color);
+          font-weight: var(--font-bold);
+          cursor: pointer;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 992px) {
+  .contact {
+    .contact-area {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contact {
+    .contact-area {
+      flex-direction: column;
+      gap: 20px;
+      .left-section {
+        width: 80%;
+      }
+      .right-section {
+        width: 80%;
+        align-self: center
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@use "../helpers/index" as*;
+@use "../components/components" as*;
+
+.gallery {
+  .gallery-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    .gallery-img {
+      border: 2px solid #eee;
+      padding: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 1px 3px 7px 1px #bfbcbc;
+      &:hover {
+        transform: scale(1.05) ;
+      }
+    }
+  }
+}
+
+.popup-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10000;
+}
+.popup-box {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  // width: 80%;
+  padding: 5px 10px 10px;
+  box-shadow: 1px 3px 7px 1px #bfbcbc;
+  z-index: 10001;
+  background: rgb(191 191 191 / 35%);
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+  backdrop-filter: blur(1.9px);
+  -webkit-backdrop-filter: blur(1.9px);
+  display: flex;
+  flex-direction: column-reverse;
+}
+.popup-img {
+  max-width: 100%;
+}
+
+.img-heading {
+  text-align: center;
+  color: var(--main-color);
+  margin-bottom: var(--mb-12);
+}
+
+.close-popup {
+  color: var(--main-color);
+  background: rgba(0, 0, 0, 0.63);
+  font-size: var(--h2-font-size);
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+  backdrop-filter: blur(1.9px);
+  -webkit-backdrop-filter: blur(1.9px);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 992px) {
+  .popup-box {
+    width: 80%;
+  }
+}
